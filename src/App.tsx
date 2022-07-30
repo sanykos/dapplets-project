@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { useDebounce } from './hooks/useDebounce';
+import { useSearchQuery } from './store/dapplets/dapplets.api';
+import { Input } from './ui/Input';
 
-function App() {
+import styles from './styles.module.css';
+
+const App: React.FC = () => {
+  const [search, setSearch] = useState('privacy');
+  const debounced = useDebounce(search);
+  const { isLoading, isError, data } = useSearchQuery(debounced);
+  console.log('data', data);
+  // console.log('searchIcon', SearchIcon);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={styles.main}>
+      {isError && <div>Ошибка при загрузке данных</div>}
+      <Input onChange={(e) => setSearch(e.target.value)} value={search} />
+      {isLoading ? (
+        <p>Загрузка</p>
+      ) : (
+        data?.data?.map((item) => (
+          <div key={item.id}>
+            {/* <img src={item.icon} alt="" /> */}
+            {item.title}
+          </div>
+        ))
+      )}
+    </main>
   );
-}
+};
 
 export default App;
