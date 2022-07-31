@@ -10,7 +10,6 @@
 }
 
 .input {
-  box-sizing: border-box;
   max-width: 600px;
   border: none;
   padding: 10px 10px 10px 36px;
