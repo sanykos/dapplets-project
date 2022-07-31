@@ -1,0 +1,67 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  box-shadow: 10px 10px 40px rgba(156, 185, 222, 0.1);
+  backdrop-filter: blur(20px);
+  transition: 0.2s linear;
+  border-radius: 10px;
+}
+
+.item:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(0, 133, 255, 0.29);
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.itemIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.titleContainer {
+  margin-left: 20px;
+  text-align: left;
+}
+
+.titleContainer h3 {
+  color: #2a2a2a;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.titleContainer small {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.itemDescription {
+  text-align: left;
+  margin-left: 20px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.itemAuthor {
+  padding: 0 20px;
+}
