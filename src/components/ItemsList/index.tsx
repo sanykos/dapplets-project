@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IData } from '../../store/dapplets/interfaces';
 import { Button } from '../../ui/Button/';
+import { ReactComponent as LinesIcon } from '../../assets/lines_icon.svg';
 
 import styles from './styles.module.css';
 
@@ -18,6 +19,7 @@ export const ItemsList: React.FC<{
       ) : (
         items?.map((item) => (
           <div className={styles.item} key={item.id}>
+            <LinesIcon />
             <img
               className={styles.itemIcon}
               src={`https://dapplets-hiring-api.herokuapp.com/api/v1/files/${item.icon}`}
