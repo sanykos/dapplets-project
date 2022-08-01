@@ -1,7 +1,4 @@
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.itemContainer {
   cursor: pointer;
   padding: 12px 20px;
   margin-bottom: 20px;
@@ -17,7 +14,7 @@
   border-radius: 10px;
 }
 
-.item:hover {
+.itemContainer:hover {
   background: linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.2) 0%,
@@ -28,6 +25,12 @@
 
 .item:last-child {
   margin-bottom: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .itemIcon {
