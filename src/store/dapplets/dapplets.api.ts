@@ -8,13 +8,15 @@ export const dappletsApi = createApi({
     baseUrl: 'https://dapplets-hiring-api.herokuapp.com/api/v1',
   }),
   endpoints: (build) => ({
-    search: build.query<IResponse, string>({
-      query: (search: string) => ({
+    search: build.query<IResponse, { search: string; limit: number }>({
+      query: ({ search, limit }) => ({
         url: '/dapplets',
         params: {
-          limit: '20',
-          start: '0',
-          filter: JSON.stringify([{ property: 'title', value: search }]),
+          limit,
+          start: 0,
+          filter: JSON.stringify([
+            { property: 'title', value: search || 'privacy' },
+          ]),
           sort: JSON.stringify([{ property: 'title', direction: 'ASC' }]),
         },
       }),
